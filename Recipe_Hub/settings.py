@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Recipes',
     'api',
+    'drf_yasg',
 
     'rest_framework',
     'rest_framework_simplejwt',
