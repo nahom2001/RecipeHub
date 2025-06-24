@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
 from rest_framework.pagination import PageNumberPagination
-from .serializers import RecipeSerializer, RecipeSummarySerializer
+from .serializers import RecipeSerializer, RecipeSummarySerializer, CategorySerializer
 from django.contrib.auth.decorators import login_required
 
 from .models import Recipe, Category, Ingredient
@@ -109,6 +109,16 @@ def recipe_create(request):
     if serializer.is_valid():
         serializer.save(user=request.user)
         return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@swagger_auto_schema(method='post', request_body=CategorySerializer)
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def category_create(request):
+    serializer = CategorySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()  
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
