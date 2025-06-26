@@ -140,6 +140,7 @@ def recipe_update(request, pk):
     return Response(serializer.data)
 
 
+@swagger_auto_schema(method='post', request_body=RecipeSerializer)
 @api_view(['GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def recipe_delete(request, pk):
