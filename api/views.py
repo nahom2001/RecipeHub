@@ -50,7 +50,7 @@ def api_menu(request):
 
 @api_view(['GET'])
 def recipe_list(request):
-    recipes = Recipe.objects.all()
+    recipes = Recipe.objects.all().order_by('id')
     filtered_recipes = filter_recipes(recipes, request.GET)
     paginated_recipes, paginator = paginate_queryset(filtered_recipes, request)
     serializer = RecipeSummarySerializer(paginated_recipes, many=True)
