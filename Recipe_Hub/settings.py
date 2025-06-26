@@ -19,7 +19,8 @@ SECRET_KEY = 'django-insecure-$v(tgxbnzbz^hn-go$*x-ymt-gi6ntp9*ox3sh(&73_y1=otx#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['doradude.pythonanywhere.com']
+ALLOWED_HOSTS = ['doradude.pythonanywhere.com', '127.0.0.1', 'localhost']
+
 
 # Application definition
 INSTALLED_APPS = [

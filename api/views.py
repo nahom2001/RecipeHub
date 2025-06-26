@@ -90,12 +90,13 @@ def recipe_ingredient(request, ingredient):
     except Ingredient.DoesNotExist:
         return Response({"detail": "Ingredient not found."}, status=404)
 
-    recipes = Recipe.objects.filter(recipe_ingredient_in=ingredients).distinct()
+    recipes = Recipe.objects.filter(recipeingredient__ingredient__in=ingredients).distinct()
     serializer = RecipeSerializer(recipes, many=True)
 
     return Response({
         "ingredient": {
-            "name": ingredients.name
+            "query": ingredient,
+            "matched": [ing.name for ing in ingredients]
         },
         "recipes": serializer.data
     })
@@ -139,7 +140,7 @@ def recipe_update(request, pk):
     return Response(serializer.data)
 
 
-@api_view(['DELETE'])
+@api_view(['GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def recipe_delete(request, pk):
     recipe = Recipe.objects.get(id=pk)
