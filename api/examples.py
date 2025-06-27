@@ -50,7 +50,9 @@ RECIPE_CREATE_REQUEST = {
     "prep_time": "20:00",
     "cooking_time": "30:00",
     "servings": "8",
-    "categories": ["Dessert"],
+    "categories": {
+        "name": "Dessert"
+        },
     "recipe_ingredients": [
         {
             "ingredient": {"name": "Flour"},
