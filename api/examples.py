@@ -25,7 +25,9 @@ CATEGORY_FILTER_RESPONSE = {
             "prep_time": "20:00",
             "cooking_time": "30:00",
             "servings": "8",
-            "categories": ["Dessert"],
+            "categories": {
+                'name': "Dessert"
+                },
             "recipe_ingredients": [
                 {
                     "ingredient": {"id": 1, "name": "Flour"},
