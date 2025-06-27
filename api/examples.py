@@ -22,8 +22,8 @@ CATEGORY_FILTER_RESPONSE = {
             "title": "Chocolate Cake",
             "description": "Rich chocolate cake with ganache",
             "instructions": "Mix, bake, and chill",
-            "prep_time": "20 minutes",
-            "cooking_time": "30 minutes",
+            "prep_time": "20:00",
+            "cooking_time": "30:00",
             "servings": "8",
             "categories": ["Dessert"],
             "recipe_ingredients": [
@@ -45,8 +45,8 @@ RECIPE_CREATE_REQUEST = {
     "title": "Chocolate Cake",
     "description": "Delicious and moist chocolate cake",
     "instructions": "1. Mix dry ingredients\n2. Add wet ingredients\n3. Bake at 180°C for 30 minutes",
-    "prep_time": "20 minutes",
-    "cooking_time": "30 minutes",
+    "prep_time": "20:00",
+    "cooking_time": "30:00",
     "servings": "8",
     "categories": ["Dessert"],
     "recipe_ingredients": [
@@ -68,8 +68,8 @@ RECIPE_CREATE_RESPONSE = {
     "title": "Chocolate Cake",
     "description": "Delicious and moist chocolate cake",
     "instructions": "1. Mix dry ingredients\n2. Add wet ingredients\n3. Bake at 180°C for 30 minutes",
-    "prep_time": "20 minutes",
-    "cooking_time": "30 minutes",
+    "prep_time": "20:00",
+    "cooking_time": "30:00",
     "servings": "8",
     "categories": ["Dessert"],
     "recipe_ingredients": [
@@ -91,8 +91,8 @@ RECIPE_LIST_RESPONSE = [
         "id": 1,
         "title": "Chocolate Cake",
         "description": "Delicious and moist chocolate cake",
-        "prep_time": "20 minutes",
-        "cooking_time": "30 minutes",
+        "prep_time": "20:00",
+        "cooking_time": "30:00",
         "servings": "8",
         "categories": ["Dessert"]
     },
@@ -100,8 +100,8 @@ RECIPE_LIST_RESPONSE = [
         "id": 2,
         "title": "Vanilla Pancakes",
         "description": "Fluffy vanilla pancakes",
-        "prep_time": "10 minutes",
-        "cooking_time": "15 minutes",
+        "prep_time": "10:00",
+        "cooking_time": "15:00",
         "servings": "4",
         "categories": ["Breakfast"]
     }
@@ -112,8 +112,8 @@ RECIPE_DETAIL_RESPONSE = RECIPE_CREATE_RESPONSE
 RECIPE_UPDATE_REQUEST = {
     "title": "Ultimate Chocolate Cake",
     "description": "With chocolate ganache topping",
-    "prep_time": "25 minutes",
-    "cooking_time": "35 minutes",
+    "prep_time": "25:00",
+    "cooking_time": "35:00",
     "servings": "10"
 }
 
@@ -121,8 +121,8 @@ RECIPE_UPDATE_RESPONSE = {
     **RECIPE_CREATE_RESPONSE,
     "title": "Ultimate Chocolate Cake",
     "description": "With chocolate ganache topping",
-    "prep_time": "25 minutes",
-    "cooking_time": "35 minutes",
+    "prep_time": "25:00",
+    "cooking_time": "35:00",
     "servings": "10"
 }
 
@@ -147,8 +147,8 @@ RECIPE_INGREDIENT_FILTER_RESPONSE = {
             "title": "Chocolate Cake",
             "description": "Delicious and moist chocolate cake",
             "instructions": "Mix ingredients, bake, and cool",
-            "prep_time": "20 minutes",
-            "cooking_time": "30 minutes",
+            "prep_time": "20:00",
+            "cooking_time": "30:00",
             "servings": "8",
             "categories": ["Dessert"],
             "recipe_ingredients": [
