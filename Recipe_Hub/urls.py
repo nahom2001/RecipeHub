@@ -1,12 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
-
-# Swagger-specific imports
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-# Swagger schema view setup
 schema_view = get_schema_view(
     openapi.Info(
         title="Recipe API",
@@ -21,13 +18,23 @@ schema_view = get_schema_view(
     authentication_classes=[],
 )
 
-# Add Bearer token security globally
-schema_view.security = [{'Bearer': []}]
+# Define OAuth2 manually (Swagger 2.0 style)
+schema_view.security_definitions = {
+    'oauth2': {
+        'type': 'oauth2',
+        'flow': 'password',
+        'tokenUrl': '/api/token/',
+        'scopes': {}
+    }
+}
+
+# Optionally apply OAuth2 globally
+schema_view.security = [{'oauth2': []}]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('api-auth/', include('rest_framework.urls')),  # Optional: for session auth login/logout in browsable API
+    path('api-auth/', include('rest_framework.urls')),  # Optional for browsable API login/logout
 
     # Swagger endpoints
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
@@ -35,7 +42,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
-# Static files (for Swagger UI CSS, JS)
+# Static files
 from django.conf import settings
 from django.conf.urls.static import static
 
