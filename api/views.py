@@ -1,3 +1,4 @@
+from rest_framework.parsers import FormParser, MultiPartParser
 from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework import status
@@ -51,7 +52,18 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
     
 class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class = MyTokenObtainPairSerializer
+    parser_classes = [FormParser, MultiPartParser]  # Accept form data
+
+    @swagger_auto_schema(
+        operation_description="Obtain JWT token using form data",
+        manual_parameters=[
+            openapi.Parameter('username', openapi.IN_FORM, type=openapi.TYPE_STRING, required=True),
+            openapi.Parameter('password', openapi.IN_FORM, type=openapi.TYPE_STRING, required=True)
+        ],
+        responses={200: 'JWT token returned'}
+    )
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
 
 
 @api_view(['GET'])
