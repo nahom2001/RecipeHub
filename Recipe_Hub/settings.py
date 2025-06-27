@@ -157,4 +157,7 @@ SWAGGER_SETTINGS = {
         }
     },
     'USE_SESSION_AUTH': False,
+    'DEFAULT_MODEL_RENDERING': 'example',
+    'DOC_EXPANSION': 'none',
+    'SECURITY': [{'Bearer': []}],  # Adds the 'bearer' to all endpoints
 }
